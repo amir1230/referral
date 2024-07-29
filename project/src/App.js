@@ -88,7 +88,7 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
+  // Redirect,
 } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
@@ -108,7 +108,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/share-issue">
+        <Route exact path="/">
           <SimpleLayout>
             <ShareIssue />
           </SimpleLayout>
@@ -120,8 +120,10 @@ function App() {
           </SimpleLayout>
         </Route>
 
-        <Route exact path="/">
-          <Redirect to="/login" />
+        <Route path="/login">
+          <MainLayout>
+            <Login />
+          </MainLayout>
         </Route>
         <Route>
           <div className="app">
